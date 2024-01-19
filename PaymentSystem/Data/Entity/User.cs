@@ -21,7 +21,7 @@ public class User: BaseEntityWithId
     public int PasswordRetryCount { get; set; }
     public int Status { get; set; }
 
-    public virtual List<ExpenseRequest> ExpenseRequests { get; set; }
+    public virtual List<Expense> Expenses { get; set; }
     public virtual List<BankInfo> BankInfos { get; set; }
 
 }
@@ -54,7 +54,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .HasForeignKey(x => x.UserId)
             .IsRequired(true);
         
-        builder.HasMany(x => x.ExpenseRequests)
+        builder.HasMany(x => x.Expenses)
             .WithOne(x => x.User)
             .HasForeignKey(x => x.UserId)
             .IsRequired(true);

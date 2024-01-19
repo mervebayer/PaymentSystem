@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PaymentSystem.Data;
 
@@ -11,9 +12,11 @@ using PaymentSystem.Data;
 namespace PaymentSystem.Migrations
 {
     [DbContext(typeof(PaymentSystemDbContext))]
-    partial class PaymentSystemDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240119211750_expense")]
+    partial class expense
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -288,13 +291,13 @@ namespace PaymentSystem.Migrations
 
             modelBuilder.Entity("PaymentSystem.Data.Entity.Payment", b =>
                 {
-                    b.HasOne("PaymentSystem.Data.Entity.Expense", "Expenses")
+                    b.HasOne("PaymentSystem.Data.Entity.Expense", "Expense")
                         .WithMany()
                         .HasForeignKey("ExpenseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Expenses");
+                    b.Navigation("Expense");
                 });
 
             modelBuilder.Entity("PaymentSystem.Data.Entity.User", b =>

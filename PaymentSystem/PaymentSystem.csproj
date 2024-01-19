@@ -20,6 +20,12 @@
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.11" />
+        <PackageReference Include="MediatR" Version="12.0.0"/>
+        <PackageReference Include="AutoMapper" Version="12.0.0"/>
+        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0"/>
+        <PackageReference Include="FluentValidation.AspNetCore" Version="9.5.2" />
+        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="9.5.2" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.11" />
   </ItemGroup>
 
 </Project>

@@ -6,8 +6,8 @@ using PaymentSystem.Base.Enum;
 
 namespace PaymentSystem.Data.Entity;
 
-[Table("ExpenseRequest", Schema = "dbo")]
-public class ExpenseRequest : BaseEntityWithId 
+[Table("Expense", Schema = "dbo")]
+public class Expense : BaseEntityWithId 
 {
     public int UserId { get; set; }
     public virtual User User { get; set; }
@@ -21,9 +21,9 @@ public class ExpenseRequest : BaseEntityWithId
     public DateTime RequestDate { get; set; }
     
 }
-public class ExpenseRequestConfiguration : IEntityTypeConfiguration<ExpenseRequest>
+public class ExpenseConfiguration : IEntityTypeConfiguration<Expense>
 {
-    public void Configure(EntityTypeBuilder<ExpenseRequest> builder)
+    public void Configure(EntityTypeBuilder<Expense> builder)
     {
         builder.Property(x => x.InsertDate).IsRequired(true);
         builder.Property(x => x.InsertUserId).IsRequired(true);

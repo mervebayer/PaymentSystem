@@ -11,7 +11,7 @@ namespace PaymentSystem.Data.Entity
     public class Payment : BaseEntityWithId
     {
         public int ExpenseId { get; set; }
-        public virtual ExpenseRequest ExpenseRequest { get; set; }
+        public virtual Expense Expenses{ get; set; }
         public decimal Amount { get; set; }
         public DateTime PaymentDate { get; set; }
     }
