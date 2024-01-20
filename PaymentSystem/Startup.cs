@@ -29,16 +29,11 @@ public class Startup
         string connection = Configuration.GetConnectionString("MsSqlConnection");
         services.AddDbContext<PaymentSystemDbContext>(options => options.UseSqlServer(connection));
         
-        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateExpenseCommand).GetTypeInfo().Assembly));
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateEmployeeExpenseCommand).GetTypeInfo().Assembly));
 
         var mapperConfig = new MapperConfiguration(cfg => cfg.AddProfile(new MapperConfig()));
         services.AddSingleton(mapperConfig.CreateMapper());
-        
-        // services.AddSingleton<Service1>();
-        // services.AddTransient<Service1>();
-        // services.AddScoped<Service1>();
-
-
+    
         services.AddControllers().AddFluentValidation(x =>
         {
             x.RegisterValidatorsFromAssemblyContaining<CreateTokenValidator>();

@@ -10,11 +10,11 @@ namespace PaymentSystem.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class ExpenseController : ControllerBase
+public class EmployeeExpenseController : ControllerBase
 {
     private readonly IMediator mediator;
 
-    public ExpenseController(IMediator mediator)
+    public EmployeeExpenseController(IMediator mediator)
     {
         this.mediator = mediator;
     }
@@ -25,16 +25,18 @@ public class ExpenseController : ControllerBase
     {
         string id = (User.Identity as ClaimsIdentity).FindFirst("Id")?.Value;
         expense.UserId = int.Parse(id);
-        var operation = new CreateExpenseCommand(expense);
+        var operation = new CreateEmployeeExpenseCommand(expense);
         var result = await mediator.Send(operation);
         return result;
     }
 
     [HttpPut("{id}")]
-    // [Authorize(Roles = "admin")]
-    public async Task<ApiResponse> Put(int id, [FromBody] ExpenseRequest expense)
+    [Authorize(Roles = "Employee")]
+    public async Task<ApiResponse> Put(int id, [FromBody] EmployeeExpenseRequest expense)
     {
-        var operation = new UpdateExpenseCommand(id, expense);
+        string userId = (User.Identity as ClaimsIdentity).FindFirst("Id")?.Value;
+        expense.UserId = int.Parse(userId);
+        var operation = new UpdateEmployeeExpenseCommand(id, expense);
         var result = await mediator.Send(operation);
         return result;
     }
@@ -43,7 +45,17 @@ public class ExpenseController : ControllerBase
     // [Authorize(Roles = "admin")]
     public async Task<ApiResponse> Delete(int id)
     {
-        var operation = new DeleteExpenseCommand(id);
+        var operation = new DeleteEmployeeExpenseCommand(id);
+        var result = await mediator.Send(operation);
+        return result;
+    }
+
+    [HttpGet]
+    [Authorize(Roles = "Employee")]
+    public async Task<ApiResponse<List<EmployeeExpenseResponse>>> Get()
+    {
+        string userId = (User.Identity as ClaimsIdentity).FindFirst("Id")?.Value;
+        var operation = new GetAllEmployeeExpenseQuery(int.Parse(userId));
         var result = await mediator.Send(operation);
         return result;
     }

@@ -21,7 +21,7 @@ public class EmployeeExpenseRequest
 
 public class EmployeeExpenseResponse
 {
-    public int UserId { get; set; }
+    public int Id { get; set; }
     public decimal Amount { get; set; }
     public string DocumentUrl { get; set; }
     public string Location { get; set; }

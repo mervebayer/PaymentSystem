@@ -4,12 +4,12 @@ using PaymentSystem.Base.Response;
 using PaymentSystem.Schema;
 
 namespace PaymentSystem.Business.Cqrs;
-public record CreateExpenseCommand(EmployeeExpenseRequest Model):IRequest<ApiResponse<EmployeeExpenseResponse>>;
+public record CreateEmployeeExpenseCommand(EmployeeExpenseRequest Model):IRequest<ApiResponse<EmployeeExpenseResponse>>;
 
-public record UpdateExpenseCommand(int Id, ExpenseRequest Model):IRequest<ApiResponse>;
+public record UpdateEmployeeExpenseCommand(int Id, EmployeeExpenseRequest Model):IRequest<ApiResponse>;
 
-public record DeleteExpenseCommand(int Id) : IRequest<ApiResponse>;
+public record DeleteEmployeeExpenseCommand(int Id) : IRequest<ApiResponse>;
 
-public record GetAllExpenseQuery() : IRequest<ApiResponse<List<ExpenseResponse>>>;
-public record GetExpenseByIdQuery(int Id) : IRequest<ApiResponse<ExpenseResponse>>;
-public record GetExpenseByParameterQuery(StatusEnum Status,string Location,DateTime ExpenseDate,DateTime RequestDate) : IRequest<ApiResponse<List<ExpenseResponse>>>;
+public record GetAllEmployeeExpenseQuery(int UserId) : IRequest<ApiResponse<List<EmployeeExpenseResponse>>>;
+public record GetEmployeeExpenseByIdQuery(int UserId, int Id) : IRequest<ApiResponse<EmployeeExpenseResponse>>;
+public record GetEmployeeExpenseByParameterQuery(StatusEnum Status,string Location,DateTime ExpenseDate,DateTime RequestDate) : IRequest<ApiResponse<List<EmployeeExpenseResponse>>>;
