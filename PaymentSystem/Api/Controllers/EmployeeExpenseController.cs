@@ -2,6 +2,7 @@ using System.Security.Claims;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using PaymentSystem.Base.Enum;
 using PaymentSystem.Base.Response;
 using PaymentSystem.Business.Cqrs;
 using PaymentSystem.Schema;
@@ -42,10 +43,11 @@ public class EmployeeExpenseController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    // [Authorize(Roles = "admin")]
+    [Authorize(Roles = "Employee")]
     public async Task<ApiResponse> Delete(int id)
     {
-        var operation = new DeleteEmployeeExpenseCommand(id);
+        string userId = (User.Identity as ClaimsIdentity).FindFirst("Id")?.Value;
+        var operation = new DeleteEmployeeExpenseCommand(id, int.Parse(userId));
         var result = await mediator.Send(operation);
         return result;
     }
@@ -56,6 +58,29 @@ public class EmployeeExpenseController : ControllerBase
     {
         string userId = (User.Identity as ClaimsIdentity).FindFirst("Id")?.Value;
         var operation = new GetAllEmployeeExpenseQuery(int.Parse(userId));
+        var result = await mediator.Send(operation);
+        return result;
+    }
+
+    [HttpGet("{id}")]
+    [Authorize(Roles = "Employee")]
+    public async Task<ApiResponse<EmployeeExpenseResponse>> Get(int id)
+    {
+        string userId = (User.Identity as ClaimsIdentity).FindFirst("Id")?.Value;
+        var operation = new GetEmployeeExpenseByIdQuery(int.Parse(userId), id);
+        var result = await mediator.Send(operation);
+        return result;
+    }
+
+    [HttpGet("ByParameters")]
+    [Authorize(Roles = "Employee")]
+    public async Task<ApiResponse<List<EmployeeExpenseResponse>>> GetByParameter(
+        [FromQuery] StatusEnum Status,
+        [FromQuery] string? Location,
+        [FromQuery] DateTime expenseDate,
+        [FromQuery] DateTime requestDate)
+    {
+        var operation = new GetEmployeeExpenseByParameterQuery(Status,Location,expenseDate,requestDate);
         var result = await mediator.Send(operation);
         return result;
     }

@@ -14,6 +14,9 @@ public class MapperConfig : Profile
         CreateMap<EmployeeExpenseRequest, Expense>();
         CreateMap<Expense, EmployeeExpenseResponse>();
 
+        CreateMap<ManagerExpenseRequest, Expense>();
+        CreateMap<Expense, ManagerExpenseResponse>();
+
         CreateMap<UserRequest, User>();
         CreateMap<User, UserResponse>();
     }

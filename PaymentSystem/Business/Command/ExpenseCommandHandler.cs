@@ -9,7 +9,9 @@ using PaymentSystem.Schema;
 
 namespace PaymentSystem.Business.Command;
 
-public class ExpenseCommandHandler : IRequestHandler<CreateEmployeeExpenseCommand, ApiResponse<EmployeeExpenseResponse>>
+public class ExpenseCommandHandler : IRequestHandler<CreateEmployeeExpenseCommand, ApiResponse<EmployeeExpenseResponse>>,
+                    IRequestHandler<DeleteEmployeeExpenseCommand, ApiResponse>,
+                    IRequestHandler<UpdateEmployeeExpenseCommand, ApiResponse>
 {
     private readonly PaymentSystemDbContext dbContext;
     private readonly IMapper mapper;
@@ -31,7 +33,7 @@ public class ExpenseCommandHandler : IRequestHandler<CreateEmployeeExpenseComman
 
     public async Task<ApiResponse> Handle(UpdateEmployeeExpenseCommand request, CancellationToken cancellationToken)
     {
-        var expense = await dbContext.Set<Expense>().Where(x => x.Id == request.Id)
+        var expense = await dbContext.Set<Expense>().Where(x => x.Id == request.Id && x.UserId == request.Model.UserId&& x.IsActive == true)
             .FirstOrDefaultAsync(cancellationToken);
         if (expense == null)
         {
@@ -49,7 +51,7 @@ public class ExpenseCommandHandler : IRequestHandler<CreateEmployeeExpenseComman
 
     public async Task<ApiResponse> Handle(DeleteEmployeeExpenseCommand request, CancellationToken cancellationToken)
     {
-        var expense = await dbContext.Set<Expense>().Where(x => x.Id == request.Id)
+        var expense = await dbContext.Set<Expense>().Where(x => x.Id == request.Id && x.UserId == request.UserId && x.IsActive == true)
             .FirstOrDefaultAsync(cancellationToken);
 
         if (expense == null)

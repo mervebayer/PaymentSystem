@@ -260,3 +260,13 @@ C:\Users\asus\Merv Dropbox\Merve Bayer\PC\Documents\GitHub\PaymentSystem\Payment
 C:\Users\asus\Merv Dropbox\Merve Bayer\PC\Documents\GitHub\PaymentSystem\PaymentSystem\bin\Debug\net7.0\MediatR.Contracts.dll
 C:\Users\asus\Merv Dropbox\Merve Bayer\PC\Documents\GitHub\PaymentSystem\PaymentSystem\bin\Debug\net7.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\asus\Merv Dropbox\Merve Bayer\PC\Documents\GitHub\PaymentSystem\PaymentSystem\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+c:\Users\asus\Merv Dropbox\Merve Bayer\PC\Documents\GitHub\PaymentSystem\PaymentSystem\bin\Debug\net7.0\EntityFramework.SqlServer.dll
+c:\Users\asus\Merv Dropbox\Merve Bayer\PC\Documents\GitHub\PaymentSystem\PaymentSystem\bin\Debug\net7.0\EntityFramework.dll
+c:\Users\asus\Merv Dropbox\Merve Bayer\PC\Documents\GitHub\PaymentSystem\PaymentSystem\bin\Debug\net7.0\LinqKit.dll
+c:\Users\asus\Merv Dropbox\Merve Bayer\PC\Documents\GitHub\PaymentSystem\PaymentSystem\bin\Debug\net7.0\LinqKit.Core.dll
+c:\Users\asus\Merv Dropbox\Merve Bayer\PC\Documents\GitHub\PaymentSystem\PaymentSystem\bin\Debug\net7.0\System.Data.SqlClient.dll
+c:\Users\asus\Merv Dropbox\Merve Bayer\PC\Documents\GitHub\PaymentSystem\PaymentSystem\bin\Debug\net7.0\runtimes\win-arm64\native\sni.dll
+c:\Users\asus\Merv Dropbox\Merve Bayer\PC\Documents\GitHub\PaymentSystem\PaymentSystem\bin\Debug\net7.0\runtimes\win-x64\native\sni.dll
+c:\Users\asus\Merv Dropbox\Merve Bayer\PC\Documents\GitHub\PaymentSystem\PaymentSystem\bin\Debug\net7.0\runtimes\win-x86\native\sni.dll
+c:\Users\asus\Merv Dropbox\Merve Bayer\PC\Documents\GitHub\PaymentSystem\PaymentSystem\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+c:\Users\asus\Merv Dropbox\Merve Bayer\PC\Documents\GitHub\PaymentSystem\PaymentSystem\bin\Debug\net7.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
