@@ -14,6 +14,7 @@ public class Expense : BaseEntityWithId
     public decimal Amount { get; set; }
     public string DocumentUrl { get; set; }
     public string Location { get; set; }
+    public CategoryEnum Category { get; set; }
     public string Description { get; set; }
     public StatusEnum Status { get; set; }
     public string RejectionReason { get; set; }
@@ -33,6 +34,7 @@ public class ExpenseConfiguration : IEntityTypeConfiguration<Expense>
 
         builder.Property(x => x.UserId).IsRequired(true);
         builder.Property(x => x.Location).IsRequired(true);
+        builder.Property(x => x.Category).IsRequired(true);
         builder.Property(x => x.Description).IsRequired(true);
         builder.Property(x => x.Amount).IsRequired(true).HasPrecision(18, 4);
         builder.Property(x => x.DocumentUrl).IsRequired(true);
