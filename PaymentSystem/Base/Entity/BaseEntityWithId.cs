@@ -1,7 +1,10 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace PaymentSystem.Base.Entity;
 
 public abstract class BaseEntityWithId : BaseEntity
 {
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
 }
 public abstract class BaseEntity

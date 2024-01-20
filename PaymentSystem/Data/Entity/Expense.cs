@@ -39,7 +39,7 @@ public class ExpenseConfiguration : IEntityTypeConfiguration<Expense>
         builder.Property(x => x.Amount).IsRequired(true).HasPrecision(18, 4);
         builder.Property(x => x.DocumentUrl).IsRequired(true);
         builder.Property(x => x.Status).IsRequired(true);
-        builder.Property(x => x.RejectionReason).IsRequired(true);
+        builder.Property(x => x.RejectionReason).IsRequired(false);
         builder.Property(x => x.ExpenseDate).IsRequired(true);
         builder.Property(x => x.RequestDate).IsRequired(true);
 

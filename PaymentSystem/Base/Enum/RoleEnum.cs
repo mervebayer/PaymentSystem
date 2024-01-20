@@ -1,8 +1,10 @@
-namespace PaymentSystem.Base.Enum
+using System.Text.Json.Serialization;
+
+namespace PaymentSystem.Base.Enum;
+
+[JsonConverter(typeof(JsonStringEnumConverter))]
+public enum RoleEnum
 {
-    public enum RoleEnum
-    {
-        Personel = 1,
-        Manager
-    }
+    Employee = 1,
+    Manager
 }

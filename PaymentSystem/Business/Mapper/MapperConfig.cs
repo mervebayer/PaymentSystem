@@ -10,5 +10,11 @@ public class MapperConfig : Profile
     {
         CreateMap<ExpenseRequest, Expense>();
         CreateMap<Expense, ExpenseResponse>();
+
+        CreateMap<EmployeeExpenseRequest, Expense>();
+        CreateMap<Expense, EmployeeExpenseResponse>();
+
+        CreateMap<UserRequest, User>();
+        CreateMap<User, UserResponse>();
     }
 }

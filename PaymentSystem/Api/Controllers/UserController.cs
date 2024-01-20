@@ -1,4 +1,3 @@
-using System.Security.Claims;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -10,31 +9,29 @@ namespace PaymentSystem.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class ExpenseController : ControllerBase
+public class UserController : ControllerBase
 {
     private readonly IMediator mediator;
 
-    public ExpenseController(IMediator mediator)
+    public UserController(IMediator mediator)
     {
         this.mediator = mediator;
     }
 
     [HttpPost]
-    [Authorize(Roles = "Employee")]
-    public async Task<ApiResponse<EmployeeExpenseResponse>> Post([FromBody] EmployeeExpenseRequest expense)
+    // [Authorize(Roles = "Manager")]
+    public async Task<ApiResponse<UserResponse>> Post([FromQuery] UserRequest User)
     {
-        string id = (User.Identity as ClaimsIdentity).FindFirst("Id")?.Value;
-        expense.UserId = int.Parse(id);
-        var operation = new CreateExpenseCommand(expense);
+        var operation = new CreateUserCommand(User);
         var result = await mediator.Send(operation);
         return result;
     }
 
     [HttpPut("{id}")]
     // [Authorize(Roles = "admin")]
-    public async Task<ApiResponse> Put(int id, [FromBody] ExpenseRequest expense)
+    public async Task<ApiResponse> Put(int id, [FromBody] UserRequest customer)
     {
-        var operation = new UpdateExpenseCommand(id, expense);
+        var operation = new UpdateUserCommand(id, customer);
         var result = await mediator.Send(operation);
         return result;
     }
@@ -43,7 +40,7 @@ public class ExpenseController : ControllerBase
     // [Authorize(Roles = "admin")]
     public async Task<ApiResponse> Delete(int id)
     {
-        var operation = new DeleteExpenseCommand(id);
+        var operation = new DeleteUserCommand(id);
         var result = await mediator.Send(operation);
         return result;
     }

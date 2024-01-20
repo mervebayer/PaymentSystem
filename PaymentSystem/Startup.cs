@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Text;
 using AutoMapper;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -9,6 +10,7 @@ using Microsoft.OpenApi.Models;
 using PaymentSystem.Base.Token;
 using PaymentSystem.Business.Cqrs;
 using PaymentSystem.Business.Mapper;
+using PaymentSystem.Business.Validator;
 using PaymentSystem.Data;
 
 namespace PaymentSystem;
@@ -37,11 +39,15 @@ public class Startup
         // services.AddScoped<Service1>();
 
 
-        services.AddControllers();
-        // .AddFluentValidation(x =>
-        // {
-        //     x.RegisterValidatorsFromAssemblyContaining<CreateCustomerValidator>();
-        // });
+        services.AddControllers().AddFluentValidation(x =>
+        {
+            x.RegisterValidatorsFromAssemblyContaining<CreateTokenValidator>();
+            x.RegisterValidatorsFromAssemblyContaining<CreateUserValidator>();
+            x.RegisterValidatorsFromAssemblyContaining<CreateExpenseValidator>();
+            x.RegisterValidatorsFromAssemblyContaining<CreateEmployeeExpenseValidator>();
+
+                            
+        });
         
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
