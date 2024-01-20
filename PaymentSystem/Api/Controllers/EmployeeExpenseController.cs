@@ -80,7 +80,8 @@ public class EmployeeExpenseController : ControllerBase
         [FromQuery] DateTime expenseDate,
         [FromQuery] DateTime requestDate)
     {
-        var operation = new GetEmployeeExpenseByParameterQuery(Status,Location,expenseDate,requestDate);
+        string userId = (User.Identity as ClaimsIdentity).FindFirst("Id")?.Value;
+        var operation = new GetEmployeeExpenseByParameterQuery(Status,Location,expenseDate,requestDate, int.Parse(userId));
         var result = await mediator.Send(operation);
         return result;
     }

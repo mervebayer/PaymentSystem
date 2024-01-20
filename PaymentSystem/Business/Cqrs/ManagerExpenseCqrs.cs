@@ -10,6 +10,6 @@ public record UpdateManagerExpenseCommand(int Id, ManagerExpenseRequest Model) :
 
 // public record DeleteManagerExpenseCommand(int Id, int UserId) : IRequest<ApiResponse>;
 
-public record GetAllManagerExpenseQuery() : IRequest<ApiResponse<List<ManagerExpenseResponse>>>;
-public record GetManagerExpenseByIdQuery(int Id) : IRequest<ApiResponse<ManagerExpenseResponse>>;
-public record GetManagerExpenseByParameterQuery(StatusEnum Status, string Location, DateTime ExpenseDate, DateTime RequestDate) : IRequest<ApiResponse<List<ManagerExpenseResponse>>>;
+public record GetAllExpenseQuery() : IRequest<ApiResponse<List<ManagerExpenseResponse>>>;
+public record GetExpenseByIdQuery(int Id) : IRequest<ApiResponse<ManagerExpenseResponse>>;
+public record GetExpenseByParameterQuery(StatusEnum Status, string Location, DateTime ExpenseDate, DateTime RequestDate) : IRequest<ApiResponse<List<ManagerExpenseResponse>>>;

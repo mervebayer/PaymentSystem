@@ -65,7 +65,7 @@ public class ExpenseQueryHandler :
         if (request.RequestDate != default)
             predicate.And(x => x.RequestDate == request.RequestDate);
 
-        var list = await dbContext.Set<Expense>().Where(x => x.IsActive == true)
+        var list = await dbContext.Set<Expense>().Where(x => x.IsActive == true && x.UserId == request.UserId)
             .Where(predicate)
             .ToListAsync(cancellationToken);
 

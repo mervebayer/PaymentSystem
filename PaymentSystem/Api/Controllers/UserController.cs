@@ -28,7 +28,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    // [Authorize(Roles = "admin")]
+    // [Authorize(Roles = "Manager")]
     public async Task<ApiResponse> Put(int id, [FromBody] UserRequest customer)
     {
         var operation = new UpdateUserCommand(id, customer);
@@ -37,7 +37,7 @@ public class UserController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    // [Authorize(Roles = "admin")]
+    // [Authorize(Roles = "Manager")]
     public async Task<ApiResponse> Delete(int id)
     {
         var operation = new DeleteUserCommand(id);

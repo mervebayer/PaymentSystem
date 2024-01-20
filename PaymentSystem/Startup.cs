@@ -40,6 +40,7 @@ public class Startup
             x.RegisterValidatorsFromAssemblyContaining<CreateUserValidator>();
             x.RegisterValidatorsFromAssemblyContaining<CreateExpenseValidator>();
             x.RegisterValidatorsFromAssemblyContaining<CreateEmployeeExpenseValidator>();
+            x.RegisterValidatorsFromAssemblyContaining<CreateManagerExpenseValidator>();
 
                             
         });

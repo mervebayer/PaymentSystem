@@ -15,7 +15,7 @@ public class ExpenseRequest
     public StatusEnum Status { get; set; }
     public string RejectionReason { get; set; }
     public DateTime ExpenseDate { get; set; }
-    public DateTime RequestDate { get; set; }
+    public DateTime RequestDate { get; set; } = DateTime.UtcNow;
     
 }
 

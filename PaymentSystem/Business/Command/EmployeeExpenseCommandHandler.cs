@@ -9,19 +9,20 @@ using PaymentSystem.Schema;
 
 namespace PaymentSystem.Business.Command;
 
-public class ExpenseCommandHandler : IRequestHandler<CreateEmployeeExpenseCommand, ApiResponse<EmployeeExpenseResponse>>,
+public class EmployeeExpenseCommandHandler : IRequestHandler<CreateEmployeeExpenseCommand, ApiResponse<EmployeeExpenseResponse>>,
                     IRequestHandler<DeleteEmployeeExpenseCommand, ApiResponse>,
                     IRequestHandler<UpdateEmployeeExpenseCommand, ApiResponse>
 {
     private readonly PaymentSystemDbContext dbContext;
     private readonly IMapper mapper;
-    public ExpenseCommandHandler(PaymentSystemDbContext dbContext, IMapper mapper)
+    public EmployeeExpenseCommandHandler(PaymentSystemDbContext dbContext, IMapper mapper)
     {
         this.dbContext = dbContext;
         this.mapper = mapper;
     }
     public async Task<ApiResponse<EmployeeExpenseResponse>> Handle(CreateEmployeeExpenseCommand request, CancellationToken cancellationToken)
     {
+        request.Model.RequestDate = DateTime.UtcNow;
         var entity = mapper.Map<EmployeeExpenseRequest, Expense>(request.Model);
 
         var entityResult = await dbContext.AddAsync(entity, cancellationToken);

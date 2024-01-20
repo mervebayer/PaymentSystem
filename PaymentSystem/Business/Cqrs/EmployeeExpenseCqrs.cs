@@ -12,4 +12,4 @@ public record DeleteEmployeeExpenseCommand(int Id, int UserId) : IRequest<ApiRes
 
 public record GetAllEmployeeExpenseQuery(int UserId) : IRequest<ApiResponse<List<EmployeeExpenseResponse>>>;
 public record GetEmployeeExpenseByIdQuery(int UserId, int Id) : IRequest<ApiResponse<EmployeeExpenseResponse>>;
-public record GetEmployeeExpenseByParameterQuery(StatusEnum Status,string Location,DateTime ExpenseDate,DateTime RequestDate) : IRequest<ApiResponse<List<EmployeeExpenseResponse>>>;
+public record GetEmployeeExpenseByParameterQuery(StatusEnum Status,string Location,DateTime ExpenseDate,DateTime RequestDate, int UserId) : IRequest<ApiResponse<List<EmployeeExpenseResponse>>>;
