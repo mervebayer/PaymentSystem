@@ -1,11 +1,11 @@
 ﻿<Project>
   <ItemGroup>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\0b2a2705-17c9-4103-90b6-82c91cf8dfc6_dummy.pdf))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\8583552f-d252-431b-8607-01d14cbb66bd_dummy.pdf))">
       <SourceType>Package</SourceType>
       <SourceId>PaymentSystem</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/PaymentSystem</BasePath>
-      <RelativePath>uploads/0b2a2705-17c9-4103-90b6-82c91cf8dfc6_dummy.pdf</RelativePath>
+      <RelativePath>uploads/8583552f-d252-431b-8607-01d14cbb66bd_dummy.pdf</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -14,14 +14,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\0b2a2705-17c9-4103-90b6-82c91cf8dfc6_dummy.pdf))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\8583552f-d252-431b-8607-01d14cbb66bd_dummy.pdf))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\1e93db5d-8212-4ce5-9584-3ac759de907b_dummy.pdf))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\b574458b-7bef-4a93-b65d-9c7803702845_dummy.pdf))">
       <SourceType>Package</SourceType>
       <SourceId>PaymentSystem</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/PaymentSystem</BasePath>
-      <RelativePath>uploads/1e93db5d-8212-4ce5-9584-3ac759de907b_dummy.pdf</RelativePath>
+      <RelativePath>uploads/b574458b-7bef-4a93-b65d-9c7803702845_dummy.pdf</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -30,23 +30,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\1e93db5d-8212-4ce5-9584-3ac759de907b_dummy.pdf))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\96f33801-1c91-490f-bde6-5fcf3d0ef42d_dummy.pdf))">
-      <SourceType>Package</SourceType>
-      <SourceId>PaymentSystem</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/PaymentSystem</BasePath>
-      <RelativePath>uploads/96f33801-1c91-490f-bde6-5fcf3d0ef42d_dummy.pdf</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\96f33801-1c91-490f-bde6-5fcf3d0ef42d_dummy.pdf))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\b574458b-7bef-4a93-b65d-9c7803702845_dummy.pdf))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4JcslJd5gcqzlCo8UgOCeF3C4Ycs8LLDzVrZUhYpQKQ=",
+  "Hash": "5nKUiUGwLyXDZukYp06FaOy9SXG2U1u/h/93CdZlA9w=",
   "Source": "PaymentSystem",
   "BasePath": "_content/PaymentSystem",
   "Mode": "Default",
@@ -15,5 +15,40 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "c:\\Users\\asus\\Merv Dropbox\\Merve Bayer\\PC\\Documents\\GitHub\\PaymentSystem\\PaymentSystem\\wwwroot\\uploads\\8583552f-d252-431b-8607-01d14cbb66bd_dummy.pdf",
+      "SourceId": "PaymentSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "c:\\Users\\asus\\Merv Dropbox\\Merve Bayer\\PC\\Documents\\GitHub\\PaymentSystem\\PaymentSystem\\wwwroot\\",
+      "BasePath": "_content/PaymentSystem",
+      "RelativePath": "uploads/8583552f-d252-431b-8607-01d14cbb66bd_dummy.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\8583552f-d252-431b-8607-01d14cbb66bd_dummy.pdf"
+    },
+    {
+      "Identity": "c:\\Users\\asus\\Merv Dropbox\\Merve Bayer\\PC\\Documents\\GitHub\\PaymentSystem\\PaymentSystem\\wwwroot\\uploads\\b574458b-7bef-4a93-b65d-9c7803702845_dummy.pdf",
+      "SourceId": "PaymentSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "c:\\Users\\asus\\Merv Dropbox\\Merve Bayer\\PC\\Documents\\GitHub\\PaymentSystem\\PaymentSystem\\wwwroot\\",
+      "BasePath": "_content/PaymentSystem",
+      "RelativePath": "uploads/b574458b-7bef-4a93-b65d-9c7803702845_dummy.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\b574458b-7bef-4a93-b65d-9c7803702845_dummy.pdf"
+    }
+  ]
 }
