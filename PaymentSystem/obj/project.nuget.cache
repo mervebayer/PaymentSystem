@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jJdPw5Eb7DNRqpoRAWEm6NA464sQxE7utWOXwrC20k+8qvMiG/QwXV4WXBesVE+zjC+eao2uXwtpBGG3An0ZoA==",
+  "dgSpecHash": "hGCKsVVKnRekJAokUz+Prmys958dJhTmCpxjAsGoYwNujUGvNMMKtcSEj5J2fzPz5kM3p+2+GjqGqiMJZFEl7A==",
   "success": true,
-  "projectFilePath": "c:\\Users\\asus\\Merv Dropbox\\Merve Bayer\\PC\\Documents\\GitHub\\PaymentSystem\\PaymentSystem\\PaymentSystem.csproj",
+  "projectFilePath": "C:\\Users\\asus\\Merv Dropbox\\Merve Bayer\\PC\\Documents\\GitHub\\PaymentSystem\\PaymentSystem\\PaymentSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\asus\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
@@ -257,7 +257,7 @@
       "code": "NU1608",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Bağımlılık kısıtlaması dışında algılanan paket sürümü: MediatR.Extensions.Microsoft.DependencyInjection 11.1.0, MediatR (>= 11.0.0 && < 12.0.0) gerektiriyor ancak sürüm MediatR 12.0.0 çözümlenmiş.",
+      "message": "Detected package version outside of dependency constraint: MediatR.Extensions.Microsoft.DependencyInjection 11.1.0 requires MediatR (>= 11.0.0 && < 12.0.0) but version MediatR 12.0.0 was resolved.",
       "libraryId": "MediatR",
       "targetGraphs": [
         "net7.0"

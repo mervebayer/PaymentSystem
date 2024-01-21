@@ -20,6 +20,9 @@ public class MapperConfig : Profile
         CreateMap<UserRequest, User>();
         CreateMap<User, UserResponse>();
 
+        
+        CreateMap<UserUpdateRequest, User>().ReverseMap();
+
         CreateMap<BankInfoRequest, BankInfo>().ReverseMap();
         CreateMap<BankInfo, BankInfoResponse>();
     }

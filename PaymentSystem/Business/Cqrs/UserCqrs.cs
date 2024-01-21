@@ -4,7 +4,7 @@ using PaymentSystem.Schema;
 
 namespace PaymentSystem.Business.Cqrs;
 public record CreateUserCommand(UserRequest Model):IRequest<ApiResponse<UserResponse>>;
-public record UpdateUserCommand(int Id, UserRequest Model):IRequest<ApiResponse>;
+public record UpdateUserCommand(int Id, UserUpdateRequest Model):IRequest<ApiResponse>;
 
 public record DeleteUserCommand(int Id) : IRequest<ApiResponse>;
 

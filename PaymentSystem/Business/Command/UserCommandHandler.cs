@@ -10,7 +10,9 @@ using PaymentSystem.Schema;
 
 namespace PaymentSystem.Business.Command;
 
-public class UserCommandHandler : IRequestHandler<CreateUserCommand, ApiResponse<UserResponse>>
+public class UserCommandHandler : IRequestHandler<CreateUserCommand, ApiResponse<UserResponse>>,
+                    IRequestHandler<DeleteUserCommand, ApiResponse>,
+                    IRequestHandler<UpdateUserCommand, ApiResponse>
 {
     private readonly PaymentSystemDbContext dbContext;
     private readonly IMapper mapper;

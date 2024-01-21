@@ -10,7 +10,9 @@ using PaymentSystem.Schema;
 
 namespace PaymentSystem.Business.Command;
 
-public class BankInfoCommandHandler : IRequestHandler<CreateBankInfoCommand, ApiResponse<BankInfoResponse>>
+public class BankInfoCommandHandler : IRequestHandler<CreateBankInfoCommand, ApiResponse<BankInfoResponse>>,
+                    IRequestHandler<DeleteBankInfoCommand, ApiResponse>,
+                    IRequestHandler<UpdateBankInfoCommand, ApiResponse>
 {
     private readonly PaymentSystemDbContext dbContext;
     private readonly IMapper mapper;

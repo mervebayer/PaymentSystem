@@ -42,3 +42,10 @@ public class UserResponse
     public virtual List<BankInfoRequest> BankInfos { get; set; }
     
 }
+
+public class UserUpdateRequest
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    
+}

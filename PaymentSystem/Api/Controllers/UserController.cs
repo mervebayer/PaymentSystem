@@ -29,7 +29,7 @@ public class UserController : ControllerBase
 
     [HttpPut("{id}")]
     // [Authorize(Roles = "Manager")]
-    public async Task<ApiResponse> Put(int id, [FromBody] UserRequest customer)
+    public async Task<ApiResponse> Put(int id, [FromBody] UserUpdateRequest customer)
     {
         var operation = new UpdateUserCommand(id, customer);
         var result = await mediator.Send(operation);
