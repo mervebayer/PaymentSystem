@@ -19,7 +19,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPost]
-    // [Authorize(Roles = "Manager")]
+    [Authorize(Roles = "Manager")]
     public async Task<ApiResponse<UserResponse>> Post([FromQuery] UserRequest User)
     {
         var operation = new CreateUserCommand(User);
@@ -28,7 +28,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    // [Authorize(Roles = "Manager")]
+    [Authorize(Roles = "Manager")]
     public async Task<ApiResponse> Put(int id, [FromBody] UserUpdateRequest customer)
     {
         var operation = new UpdateUserCommand(id, customer);
@@ -37,7 +37,7 @@ public class UserController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    // [Authorize(Roles = "Manager")]
+    [Authorize(Roles = "Manager")]
     public async Task<ApiResponse> Delete(int id)
     {
         var operation = new DeleteUserCommand(id);
@@ -45,8 +45,8 @@ public class UserController : ControllerBase
         return result;
     }
 
-     [HttpGet]
-    // [Authorize(Roles = "Employee")]
+    [HttpGet]
+    [Authorize(Roles = "Manager")]
     public async Task<ApiResponse<List<UserResponse>>> Get()
     {
         var operation = new GetAllUserQuery();
@@ -55,21 +55,12 @@ public class UserController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    // [Authorize(Roles = "Manager")]
+    [Authorize(Roles = "Manager")]
     public async Task<ApiResponse<UserResponse>> Get(int id)
     {
         var operation = new GetUserByIdQuery(id);
         var result = await mediator.Send(operation);
         return result;
     }
-
-   [HttpGet("GetRequestStatusCounts")]
-// [Authorize(Roles = "Manager")]
-public async Task<ApiResponse<IEnumerable<RequestStatusCountsResponse>>> GetRequestStatusCounts()
-{
-    var operation = new GetRequestStatusCountsQuery();
-    var result = await mediator.Send(operation);
-    return result;
-}
 
 }
