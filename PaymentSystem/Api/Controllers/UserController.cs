@@ -53,4 +53,13 @@ public class UserController : ControllerBase
         var result = await mediator.Send(operation);
         return result;
     }
+
+    [HttpGet("{id}")]
+    // [Authorize(Roles = "Manager")]
+    public async Task<ApiResponse<UserResponse>> Get(int id)
+    {
+        var operation = new GetUserByIdQuery(id);
+        var result = await mediator.Send(operation);
+        return result;
+    }
 }

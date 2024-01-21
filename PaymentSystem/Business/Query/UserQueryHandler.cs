@@ -13,7 +13,8 @@ using PaymentSystem.Schema;
 namespace PaymentSystem.Business.Query;
 
 public class UserQueryHandler :
-    IRequestHandler<GetAllUserQuery, ApiResponse<List<UserResponse>>>
+    IRequestHandler<GetAllUserQuery, ApiResponse<List<UserResponse>>>,
+    IRequestHandler<GetUserByIdQuery, ApiResponse<UserResponse>>
     
 {
     private readonly PaymentSystemDbContext dbContext;
@@ -34,6 +35,20 @@ public class UserQueryHandler :
 
         var mappedList = mapper.Map<List<User>, List<UserResponse>>(list);
         return new ApiResponse<List<UserResponse>>(mappedList);
+    }
+
+    public async Task<ApiResponse<UserResponse>> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)
+    {
+        var entity = await dbContext.Set<User>()
+           .Include(x => x.BankInfos)
+           .Include(x => x.Expenses)
+            .FirstOrDefaultAsync(x => x.Id == request.Id && x.IsActive == true, cancellationToken);
+        if (entity == null)
+        {
+            return new ApiResponse<UserResponse>("Record not found");
+        }
+        var mapped = mapper.Map<User, UserResponse>(entity);
+        return new ApiResponse<UserResponse>(mapped);
     }
 
 }

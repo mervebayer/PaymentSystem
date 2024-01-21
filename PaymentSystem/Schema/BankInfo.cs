@@ -17,6 +17,7 @@ public class BankInfoRequest
 
 public class BankInfoResponse
 {
+    public int Id { get; set; }
     public int UserId { get; set; }
     public string IBAN { get; set; }
     public string BankName { get; set; }

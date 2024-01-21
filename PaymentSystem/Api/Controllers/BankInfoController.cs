@@ -44,4 +44,22 @@ public class BankInfoController : ControllerBase
         var result = await mediator.Send(operation);
         return result;
     }
+
+     [HttpGet]
+    // [Authorize(Roles = "Employee")]
+    public async Task<ApiResponse<List<BankInfoResponse>>> Get()
+    {
+        var operation = new GetAllBankInfoQuery();
+        var result = await mediator.Send(operation);
+        return result;
+    }
+
+     [HttpGet("{id}")]
+    // [Authorize(Roles = "Manager")]
+    public async Task<ApiResponse<BankInfoResponse>> Get(int id)
+    {
+        var operation = new GetBankInfoByIdQuery(id);
+        var result = await mediator.Send(operation);
+        return result;
+    }
 }
