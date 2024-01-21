@@ -8,7 +8,7 @@ public class MapperConfig : Profile
 {
     public MapperConfig()
     {
-        CreateMap<ExpenseRequest, Expense>();
+        CreateMap<ExpenseRequest, Expense>().ReverseMap();
         CreateMap<Expense, ExpenseResponse>();
 
         CreateMap<EmployeeExpenseRequest, Expense>();
@@ -19,5 +19,8 @@ public class MapperConfig : Profile
 
         CreateMap<UserRequest, User>();
         CreateMap<User, UserResponse>();
+
+        CreateMap<BankInfoRequest, BankInfo>().ReverseMap();
+        CreateMap<BankInfo, BankInfoResponse>();
     }
 }

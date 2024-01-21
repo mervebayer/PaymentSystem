@@ -38,7 +38,7 @@ public class UserResponse
     public int PasswordRetryCount { get; set; }
     public int Status { get; set; }
 
-    public virtual List<Expense> Expenses { get; set; }
-    public virtual List<BankInfo> BankInfos { get; set; }
+    public virtual List<ExpenseRequest> Expenses { get; set; }
+    public virtual List<BankInfoRequest> BankInfos { get; set; }
     
 }

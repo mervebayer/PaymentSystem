@@ -155,6 +155,13 @@ namespace PaymentSystem.Migrations
                         .HasPrecision(18, 4)
                         .HasColumnType("decimal(18,4)");
 
+                    b.Property<int>("BankInfoId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ExpenseId")
                         .HasColumnType("int");
 
@@ -179,6 +186,8 @@ namespace PaymentSystem.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BankInfoId");
 
                     b.HasIndex("ExpenseId");
 
@@ -290,11 +299,19 @@ namespace PaymentSystem.Migrations
 
             modelBuilder.Entity("PaymentSystem.Data.Entity.Payment", b =>
                 {
+                    b.HasOne("PaymentSystem.Data.Entity.BankInfo", "BankInfo")
+                        .WithMany()
+                        .HasForeignKey("BankInfoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("PaymentSystem.Data.Entity.Expense", "Expenses")
                         .WithMany()
                         .HasForeignKey("ExpenseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("BankInfo");
 
                     b.Navigation("Expenses");
                 });

@@ -41,6 +41,7 @@ public class Startup
             x.RegisterValidatorsFromAssemblyContaining<CreateExpenseValidator>();
             x.RegisterValidatorsFromAssemblyContaining<CreateEmployeeExpenseValidator>();
             x.RegisterValidatorsFromAssemblyContaining<CreateManagerExpenseValidator>();
+            x.RegisterValidatorsFromAssemblyContaining<CreateBankInfoValidator>();
 
                             
         });
