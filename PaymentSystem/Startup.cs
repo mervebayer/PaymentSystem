@@ -12,6 +12,8 @@ using PaymentSystem.Business.Cqrs;
 using PaymentSystem.Business.Mapper;
 using PaymentSystem.Business.Validator;
 using PaymentSystem.Data;
+using Hangfire;
+using Hangfire.PostgreSql;
 
 namespace PaymentSystem;
 
@@ -42,6 +44,8 @@ public class Startup
             x.RegisterValidatorsFromAssemblyContaining<CreateEmployeeExpenseValidator>();
             x.RegisterValidatorsFromAssemblyContaining<CreateManagerExpenseValidator>();
             x.RegisterValidatorsFromAssemblyContaining<CreateBankInfoValidator>();
+            x.RegisterValidatorsFromAssemblyContaining<CreateEmployeeExpenseRequestValidator>();
+            x.RegisterValidatorsFromAssemblyContaining<CreateBankInfoRequestValidator>();
 
                             
         });
@@ -51,16 +55,7 @@ public class Startup
 
         services.AddResponseCaching();
         services.AddMemoryCache();
-        
-        // // redis
-        // var redisConfig = new ConfigurationOptions();
-        // redisConfig.EndPoints.Add(Configuration["Redis:Host"],Convert.ToInt32(Configuration["Redis:Port"]));
-        // redisConfig.DefaultDatabase = 0;
-        // services.AddStackExchangeRedisCache(opt =>
-        // {
-        //     opt.ConfigurationOptions = redisConfig;
-        //     opt.InstanceName = Configuration["Redis:InstanceName"];
-        // });
+    
 
         services.AddSwaggerGen(c =>
         {
@@ -112,7 +107,7 @@ public class Startup
             };
         });
         
-        
+       
         // services.AddHangfire(configuration => configuration
         //     .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
         //     .UseSimpleAssemblyNameTypeSerializer()
@@ -124,9 +119,6 @@ public class Startup
         //         QueuePollInterval = TimeSpan.FromMinutes(5),
         //     }));
         // services.AddHangfireServer();
-
-
-        // services.AddScoped<INotificationService, NotificationService>();
 
     }
     

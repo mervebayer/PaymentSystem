@@ -4,7 +4,7 @@ using PaymentSystem.Base.Response;
 using PaymentSystem.Schema;
 
 namespace PaymentSystem.Business.Cqrs;
-public record CreateEmployeeExpenseCommand(EmployeeExpenseRequest Model):IRequest<ApiResponse<EmployeeExpenseResponse>>;
+public record CreateEmployeeExpenseCommand(EmployeeExpenseCreateRequest Model, int userId, string fileUrl):IRequest<ApiResponse<EmployeeExpenseResponse>>;
 
 public record UpdateEmployeeExpenseCommand(int Id, EmployeeExpenseRequest Model):IRequest<ApiResponse>;
 

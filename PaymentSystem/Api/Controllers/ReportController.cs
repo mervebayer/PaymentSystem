@@ -20,7 +20,7 @@ public class ReportController : ControllerBase
 
 
     [HttpGet("RequestStatus")]
-    [Authorize(Roles = "Manager")]
+   [Authorize(Roles = "Manager")]
     public async Task<ApiResponse<IEnumerable<RequestStatusCountsResponse>>> GetRequestStatus()
     {
         var operation = new GetRequestStatusCountsQuery();
@@ -29,7 +29,7 @@ public class ReportController : ControllerBase
     }
 
     [HttpGet("ExpenseSummary")]
-    [Authorize(Roles = "Manager")]
+   [Authorize(Roles = "Manager")]
     public async Task<ApiResponse<IEnumerable<ExpenseSummary>>> ExpenseSummary()
     {
         var operation = new GetExpensesByTimeQuery();

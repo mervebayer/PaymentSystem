@@ -33,13 +33,13 @@ public class ReportQueryHandler : IRequestHandler<GetRequestStatusCountsQuery, A
             using (var multipleResults = await dbContext.Database.GetDbConnection().QueryMultipleAsync(query, cancellationToken))
             {
                 var dailyCounts = multipleResults.Read<RequestStatusCountsResponse>().ToList();
-                var weeklyCounts = multipleResults.Read<RequestStatusCountsResponse>().ToList();
+                // var weeklyCounts = multipleResults.Read<RequestStatusCountsResponse>().ToList();
                 var monthlyCounts = multipleResults.Read<RequestStatusCountsResponse>().ToList();
 
                 var result = new List<RequestStatusCountsResponse>
             {
                 dailyCounts.FirstOrDefault(),
-                weeklyCounts.FirstOrDefault(),
+                // weeklyCounts.FirstOrDefault(),
                 monthlyCounts.FirstOrDefault()
             };
 
@@ -60,13 +60,13 @@ public class ReportQueryHandler : IRequestHandler<GetRequestStatusCountsQuery, A
             using (var multipleResults = await dbContext.Database.GetDbConnection().QueryMultipleAsync(query, cancellationToken))
             {
                 var dailyCounts = multipleResults.Read<ExpenseSummary>().ToList();
-                var weeklyCounts = multipleResults.Read<ExpenseSummary>().ToList();
+                // var weeklyCounts = multipleResults.Read<ExpenseSummary>().ToList();
                 var monthlyCounts = multipleResults.Read<ExpenseSummary>().ToList();
 
                 var result = new List<ExpenseSummary>
             {
                 dailyCounts.FirstOrDefault(),
-                weeklyCounts.FirstOrDefault(),
+                // weeklyCounts.FirstOrDefault(),
                 monthlyCounts.FirstOrDefault()
             };
 

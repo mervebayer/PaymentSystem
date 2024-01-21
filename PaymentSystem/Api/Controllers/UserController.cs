@@ -19,7 +19,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPost]
-    [Authorize(Roles = "Manager")]
+   [Authorize(Roles = "Manager")]
     public async Task<ApiResponse<UserResponse>> Post([FromQuery] UserRequest User)
     {
         var operation = new CreateUserCommand(User);
@@ -46,7 +46,7 @@ public class UserController : ControllerBase
     }
 
     [HttpGet]
-    [Authorize(Roles = "Manager")]
+   [Authorize(Roles = "Manager")]
     public async Task<ApiResponse<List<UserResponse>>> Get()
     {
         var operation = new GetAllUserQuery();
@@ -55,7 +55,7 @@ public class UserController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    [Authorize(Roles = "Manager")]
+   [Authorize(Roles = "Manager")]
     public async Task<ApiResponse<UserResponse>> Get(int id)
     {
         var operation = new GetUserByIdQuery(id);

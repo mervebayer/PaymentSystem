@@ -15,8 +15,12 @@ public class CreateUserValidator : AbstractValidator<UserRequest>
         RuleFor(x => x.Password).NotEmpty().WithMessage("Password is required.");
         RuleFor(x => x.Email).NotEmpty().EmailAddress().WithMessage("Invalid email address.");
         RuleFor(x => x.Role).IsInEnum().WithMessage("Invalid role.");
-        RuleFor(x => x.DateOfBirth).NotEmpty().WithName("Format must be YYYY-mm-DD").WithMessage("Date of birth is required.");
+        RuleFor(x => x.DateOfBirth).NotEmpty().Must(BeNotInFuture).WithName("Format must be YYYY-mm-DD").WithMessage("Invalid date of birth.");
 
-        // RuleForEach(x => x.Expenses).SetValidator(new CreateExpenseValidator());
+        // RuleForEach(x => x.Expenses).SetValidator(new CreateEmployeeExpenseRequestValidator());
+    }
+    private bool BeNotInFuture(DateTime dateOfBirth)
+    {
+        return dateOfBirth <= DateTime.Today;
     }
 }

@@ -32,3 +32,12 @@ public class EmployeeExpenseResponse
     public DateTime RequestDate { get; set; }
     
 }
+
+public class EmployeeExpenseCreateRequest
+{
+    public decimal Amount { get; set; }
+    public string Location { get; set; }
+    public string Description { get; set; }
+    public DateTime ExpenseDate { get; set; }
+    
+}

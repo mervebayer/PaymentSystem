@@ -14,6 +14,8 @@ public class MapperConfig : Profile
         CreateMap<EmployeeExpenseRequest, Expense>();
         CreateMap<Expense, EmployeeExpenseResponse>();
 
+        CreateMap<EmployeeExpenseCreateRequest, Expense>();
+
         CreateMap<ManagerExpenseRequest, Expense>();
         CreateMap<Expense, ManagerExpenseResponse>();
 
@@ -24,6 +26,7 @@ public class MapperConfig : Profile
         CreateMap<UserUpdateRequest, User>().ReverseMap();
 
         CreateMap<BankInfoRequest, BankInfo>().ReverseMap();
+        CreateMap<BankInfoUserRequest, BankInfo>().ReverseMap();
         CreateMap<BankInfo, BankInfoResponse>();
     }
 }

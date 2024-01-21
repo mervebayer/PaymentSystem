@@ -15,17 +15,18 @@ public class UserRequest
     public RoleEnum Role { get; set; }
     public DateTime DateOfBirth { get; set; }
     
-    [JsonIgnore]
-    public virtual List<Expense>? Expenses { get; set; }
+    // [JsonIgnore]
+    // public virtual List<EmployeeExpenseCreateRequest>? Expenses { get; set; }
     
-    [JsonIgnore]
+    // [JsonIgnore]
 
-    public virtual List<BankInfo>? BankInfos { get; set; }
+    // public virtual List<BankInfoUserRequest>? BankInfos { get; set; }
     
 }
 
 public class UserResponse
 {
+    public int Id { get; set; }
     public string IdentityNumber { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
@@ -38,7 +39,7 @@ public class UserResponse
     public int PasswordRetryCount { get; set; }
     public int Status { get; set; }
 
-    public virtual List<ExpenseRequest> Expenses { get; set; }
+    public virtual List<EmployeeExpenseResponse> Expenses { get; set; }
     public virtual List<BankInfoRequest> BankInfos { get; set; }
     
 }

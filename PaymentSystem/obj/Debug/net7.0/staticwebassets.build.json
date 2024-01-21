@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "qwZL5t3otB+DBUCeRLE0DKY/2d4s68eXqWrLD/AxAn4=",
+  "Hash": "4JcslJd5gcqzlCo8UgOCeF3C4Ycs8LLDzVrZUhYpQKQ=",
   "Source": "PaymentSystem",
   "BasePath": "_content/PaymentSystem",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "PaymentSystem\\wwwroot",
+      "Source": "PaymentSystem",
+      "ContentRoot": "c:\\Users\\asus\\Merv Dropbox\\Merve Bayer\\PC\\Documents\\GitHub\\PaymentSystem\\PaymentSystem\\wwwroot\\",
+      "BasePath": "_content/PaymentSystem",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

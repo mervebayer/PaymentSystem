@@ -45,7 +45,7 @@ public class UserCommandHandler : IRequestHandler<CreateUserCommand, ApiResponse
 
     public async Task<ApiResponse> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
     {
-        var user = await dbContext.Set<User>().Where(x => x.Id == request.Id)
+        var user = await dbContext.Set<User>().Where(x => x.Id == request.Id && x.IsActive == true )
             .FirstOrDefaultAsync(cancellationToken);
         if (user == null)
         {
@@ -61,7 +61,7 @@ public class UserCommandHandler : IRequestHandler<CreateUserCommand, ApiResponse
 
     public async Task<ApiResponse> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
     {
-        var user = await dbContext.Set<User>().Where(x => x.Id == request.Id)
+        var user = await dbContext.Set<User>().Where(x => x.Id == request.Id && x.IsActive == true)
             .FirstOrDefaultAsync(cancellationToken);
 
         if (user == null)

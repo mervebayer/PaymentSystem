@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "c:\\Users\\asus\\Merv Dropbox\\Merve Bayer\\PC\\Documents\\GitHub\\PaymentSystem\\PaymentSystem\\wwwroot\\uploads\\0b2a2705-17c9-4103-90b6-82c91cf8dfc6_dummy.pdf",
+      "PackagePath": "staticwebassets\\uploads\\0b2a2705-17c9-4103-90b6-82c91cf8dfc6_dummy.pdf"
+    },
+    {
+      "Id": "c:\\Users\\asus\\Merv Dropbox\\Merve Bayer\\PC\\Documents\\GitHub\\PaymentSystem\\PaymentSystem\\wwwroot\\uploads\\1e93db5d-8212-4ce5-9584-3ac759de907b_dummy.pdf",
+      "PackagePath": "staticwebassets\\uploads\\1e93db5d-8212-4ce5-9584-3ac759de907b_dummy.pdf"
+    },
+    {
+      "Id": "c:\\Users\\asus\\Merv Dropbox\\Merve Bayer\\PC\\Documents\\GitHub\\PaymentSystem\\PaymentSystem\\wwwroot\\uploads\\96f33801-1c91-490f-bde6-5fcf3d0ef42d_dummy.pdf",
+      "PackagePath": "staticwebassets\\uploads\\96f33801-1c91-490f-bde6-5fcf3d0ef42d_dummy.pdf"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.PaymentSystem.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.PaymentSystem.props",
+      "PackagePath": "build\\PaymentSystem.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.PaymentSystem.props",
+      "PackagePath": "buildMultiTargeting\\PaymentSystem.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.PaymentSystem.props",
+      "PackagePath": "buildTransitive\\PaymentSystem.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

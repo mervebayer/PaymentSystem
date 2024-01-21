@@ -22,9 +22,11 @@ public class EmployeeExpenseCommandHandler : IRequestHandler<CreateEmployeeExpen
     }
     public async Task<ApiResponse<EmployeeExpenseResponse>> Handle(CreateEmployeeExpenseCommand request, CancellationToken cancellationToken)
     {
-        request.Model.RequestDate = DateTime.UtcNow;
-        var entity = mapper.Map<EmployeeExpenseRequest, Expense>(request.Model);
-
+        
+        var entity = mapper.Map<EmployeeExpenseCreateRequest, Expense>(request.Model);
+        entity.RequestDate = DateTime.UtcNow;
+        entity.UserId = request.userId;
+        entity.DocumentUrl = request.fileUrl;
         var entityResult = await dbContext.AddAsync(entity, cancellationToken);
         await dbContext.SaveChangesAsync(cancellationToken);
 
@@ -43,7 +45,7 @@ public class EmployeeExpenseCommandHandler : IRequestHandler<CreateEmployeeExpen
 
         expense.Amount = request.Model.Amount;
         expense.Location = request.Model.Location;
-        expense.DocumentUrl = request.Model.DocumentUrl;
+        // expense.DocumentUrl = request.Model.DocumentUrl;
         expense.ExpenseDate = request.Model.ExpenseDate;
 
         await dbContext.SaveChangesAsync(cancellationToken);
@@ -52,7 +54,7 @@ public class EmployeeExpenseCommandHandler : IRequestHandler<CreateEmployeeExpen
 
     public async Task<ApiResponse> Handle(DeleteEmployeeExpenseCommand request, CancellationToken cancellationToken)
     {
-        var expense = await dbContext.Set<Expense>().Where(x => x.Id == request.Id && x.UserId == request.UserId && x.IsActive == true)
+        var expense = await dbContext.Set<Expense>().Where(x => x.Id == request.Id && x.UserId == request.UserId && x.IsActive == true && x.Status != Base.Enum.StatusEnum.Declined && x.Status != Base.Enum.StatusEnum.Approved)
             .FirstOrDefaultAsync(cancellationToken);
 
         if (expense == null)
@@ -64,4 +66,5 @@ public class EmployeeExpenseCommandHandler : IRequestHandler<CreateEmployeeExpen
         await dbContext.SaveChangesAsync(cancellationToken);
         return new ApiResponse();
     }
+
 }

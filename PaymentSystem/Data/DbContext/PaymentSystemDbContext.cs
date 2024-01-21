@@ -40,7 +40,7 @@ public class PaymentSystemDbContext: DbContext
                 FirstName = "Manager",
                 LastName = "User",
                 UserName = "manageruser",
-                Password = "a4f64b517678640a0bd1d9b8b4e4f9b4 ", // manageruesr
+                Password = "a4f64b517678640a0bd1d9b8b4e4f9b4 ", // manageruser
                 Email = "manager@example.com",
                 Role = RoleEnum.Manager,
                 DateOfBirth = new DateTime(1980, 4, 4),

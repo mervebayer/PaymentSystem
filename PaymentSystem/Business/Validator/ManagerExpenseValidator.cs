@@ -8,11 +8,10 @@ public class CreateManagerExpenseValidator : AbstractValidator<ManagerExpenseReq
 {
     public CreateManagerExpenseValidator()
     {
-        // RuleFor(x => x.UserId).GreaterThan(0).WithMessage("User ID must be greater than 0.");     
         RuleFor(x => x.Status).IsInEnum().WithMessage("Invalid status.");
         When(x => x.Status == StatusEnum.Declined, () =>
         {
-            RuleFor(x => x.RejectionReason).NotEmpty().WithMessage("Rejection reason is required for rejected expenses.");
+            RuleFor(x => x.RejectionReason).NotEmpty().MaximumLength(500).WithMessage("Rejection reason is required for rejected expenses.");
         });
     }
 }

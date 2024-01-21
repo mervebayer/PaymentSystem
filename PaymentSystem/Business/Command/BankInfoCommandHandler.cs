@@ -42,7 +42,7 @@ public class BankInfoCommandHandler : IRequestHandler<CreateBankInfoCommand, Api
 
     public async Task<ApiResponse> Handle(UpdateBankInfoCommand request, CancellationToken cancellationToken)
     {
-        var bankInfo = await dbContext.Set<BankInfo>().Where(x => x.Id == request.Id)
+        var bankInfo = await dbContext.Set<BankInfo>().Where(x => x.Id == request.Id && x.IsActive == true)
             .FirstOrDefaultAsync(cancellationToken);
         if (bankInfo == null)
         {
@@ -59,7 +59,7 @@ public class BankInfoCommandHandler : IRequestHandler<CreateBankInfoCommand, Api
 
        public async Task<ApiResponse> Handle(DeleteBankInfoCommand request, CancellationToken cancellationToken)
     {
-        var bankInfo = await dbContext.Set<BankInfo>().Where(x => x.Id == request.Id)
+        var bankInfo = await dbContext.Set<BankInfo>().Where(x => x.Id == request.Id && x.IsActive == true)
             .FirstOrDefaultAsync(cancellationToken);
         
         if (bankInfo == null)

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PaymentSystem.Base.Enum;
 using PaymentSystem.Base.Response;
+using PaymentSystem.Business.Class;
 using PaymentSystem.Business.Cqrs;
 using PaymentSystem.Schema;
 
@@ -22,11 +23,16 @@ public class EmployeeExpenseController : ControllerBase
 
     [HttpPost]
     [Authorize(Roles = "Employee")]
-    public async Task<ApiResponse<EmployeeExpenseResponse>> Post([FromBody] EmployeeExpenseRequest expense)
+    public async Task<ApiResponse<EmployeeExpenseResponse>> Post([FromForm] EmployeeExpenseCreateRequest expense, IFormFile file)
     {
         string id = (User.Identity as ClaimsIdentity).FindFirst("Id")?.Value;
-        expense.UserId = int.Parse(id);
-        var operation = new CreateEmployeeExpenseCommand(expense);
+        string fileUrl = "";
+        if (file != null)
+        {
+            fileUrl = new SaveFiles().SaveFile(file);
+
+        }
+        var operation = new CreateEmployeeExpenseCommand(expense, int.Parse(id), fileUrl);
         var result = await mediator.Send(operation);
         return result;
     }
@@ -81,8 +87,10 @@ public class EmployeeExpenseController : ControllerBase
         [FromQuery] DateTime requestDate)
     {
         string userId = (User.Identity as ClaimsIdentity).FindFirst("Id")?.Value;
-        var operation = new GetEmployeeExpenseByParameterQuery(Status,Location,expenseDate,requestDate, int.Parse(userId));
+        var operation = new GetEmployeeExpenseByParameterQuery(Status, Location, expenseDate, requestDate, int.Parse(userId));
         var result = await mediator.Send(operation);
         return result;
     }
+
+    
 }

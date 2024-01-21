@@ -25,3 +25,12 @@ public class BankInfoResponse
     public string Surname { get; set; }
     
 }
+
+public class BankInfoUserRequest
+{
+    public string IBAN { get; set; }
+    public string BankName { get; set; }
+    public string Name { get; set; }
+    public string Surname { get; set; }
+    
+}

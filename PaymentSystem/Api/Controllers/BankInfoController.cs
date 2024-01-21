@@ -19,7 +19,7 @@ public class BankInfoController : ControllerBase
     }
 
     [HttpPost]
-    // [Authorize(Roles = "Manager")]
+    [Authorize(Roles = "Manager")]
     public async Task<ApiResponse<BankInfoResponse>> Post([FromQuery] BankInfoRequest BankInfo)
     {
         var operation = new CreateBankInfoCommand(BankInfo);
@@ -28,7 +28,7 @@ public class BankInfoController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    // [Authorize(Roles = "Manager")]
+    [Authorize(Roles = "Manager")]
     public async Task<ApiResponse> Put(int id, [FromBody] BankInfoRequest customer)
     {
         var operation = new UpdateBankInfoCommand(id, customer);
@@ -37,7 +37,7 @@ public class BankInfoController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    // [Authorize(Roles = "Manager")]
+    [Authorize(Roles = "Manager")]
     public async Task<ApiResponse> Delete(int id)
     {
         var operation = new DeleteBankInfoCommand(id);
@@ -46,7 +46,7 @@ public class BankInfoController : ControllerBase
     }
 
      [HttpGet]
-    // [Authorize(Roles = "Employee")]
+    [Authorize(Roles = "Manager")]
     public async Task<ApiResponse<List<BankInfoResponse>>> Get()
     {
         var operation = new GetAllBankInfoQuery();
@@ -55,7 +55,7 @@ public class BankInfoController : ControllerBase
     }
 
      [HttpGet("{id}")]
-    // [Authorize(Roles = "Manager")]
+    [Authorize(Roles = "Manager")]
     public async Task<ApiResponse<BankInfoResponse>> Get(int id)
     {
         var operation = new GetBankInfoByIdQuery(id);
