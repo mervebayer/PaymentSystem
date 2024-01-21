@@ -7,12 +7,14 @@ using PaymentSystem.Business.Cqrs;
 using PaymentSystem.Data;
 using PaymentSystem.Data.Entity;
 using PaymentSystem.Schema;
+using Dapper;
 
 namespace PaymentSystem.Business.Command;
 
 public class UserCommandHandler : IRequestHandler<CreateUserCommand, ApiResponse<UserResponse>>,
                     IRequestHandler<DeleteUserCommand, ApiResponse>,
                     IRequestHandler<UpdateUserCommand, ApiResponse>
+
 {
     private readonly PaymentSystemDbContext dbContext;
     private readonly IMapper mapper;
@@ -23,8 +25,8 @@ public class UserCommandHandler : IRequestHandler<CreateUserCommand, ApiResponse
     }
     public async Task<ApiResponse<UserResponse>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
     {
-      var checkIdentity = await dbContext.Set<User>().Where(x => x.IdentityNumber == request.Model.IdentityNumber)
-            .FirstOrDefaultAsync(cancellationToken);
+        var checkIdentity = await dbContext.Set<User>().Where(x => x.IdentityNumber == request.Model.IdentityNumber)
+              .FirstOrDefaultAsync(cancellationToken);
         if (checkIdentity != null)
         {
             return new ApiResponse<UserResponse>($"{request.Model.IdentityNumber} is used by another customer.");
@@ -49,26 +51,29 @@ public class UserCommandHandler : IRequestHandler<CreateUserCommand, ApiResponse
         {
             return new ApiResponse("Record not found");
         }
-        
+
         user.FirstName = request.Model.FirstName;
         user.LastName = request.Model.LastName;
-        
+
         await dbContext.SaveChangesAsync(cancellationToken);
         return new ApiResponse();
     }
 
-       public async Task<ApiResponse> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
+    public async Task<ApiResponse> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
     {
         var user = await dbContext.Set<User>().Where(x => x.Id == request.Id)
             .FirstOrDefaultAsync(cancellationToken);
-        
+
         if (user == null)
         {
             return new ApiResponse("Record not found");
         }
-        
+
         user.IsActive = false;
         await dbContext.SaveChangesAsync(cancellationToken);
         return new ApiResponse();
     }
+
 }
+
+

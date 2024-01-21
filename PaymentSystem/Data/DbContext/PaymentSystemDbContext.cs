@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PaymentSystem.Data.Entity;
+using PaymentSystem.Schema;
 
 namespace PaymentSystem.Data;
 public class PaymentSystemDbContext: DbContext
@@ -20,6 +21,10 @@ public class PaymentSystemDbContext: DbContext
         modelBuilder.ApplyConfiguration(new BankInfoConfiguration());
         modelBuilder.ApplyConfiguration(new ExpenseConfiguration());
         modelBuilder.ApplyConfiguration(new PaymentConfiguration());
+
+        modelBuilder.Entity<RequestStatusCountsResponse>().ToView("GetRequestStatusCounts").HasNoKey();;
+        modelBuilder.Entity<RequestStatusCountsResponse>().ToView("GetExpensesByTime").HasNoKey();;
+
         base.OnModelCreating(modelBuilder);
     }
 }

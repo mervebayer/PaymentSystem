@@ -8,8 +8,6 @@ using PaymentSystem.Data;
 using PaymentSystem.Data.Entity;
 using PaymentSystem.Schema;
 
-
-
 namespace PaymentSystem.Business.Query;
 
 public class BankInfoQueryHandler :

@@ -11,3 +11,5 @@ public record DeleteUserCommand(int Id) : IRequest<ApiResponse>;
 public record GetAllUserQuery() : IRequest<ApiResponse<List<UserResponse>>>;
 public record GetUserByIdQuery(int Id) : IRequest<ApiResponse<UserResponse>>;
 public record GetUserByParameterQuery(string FirstName,string LastName,string IdentityNumber) : IRequest<ApiResponse<List<UserResponse>>>;
+
+

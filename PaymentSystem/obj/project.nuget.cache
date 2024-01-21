@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "hGCKsVVKnRekJAokUz+Prmys958dJhTmCpxjAsGoYwNujUGvNMMKtcSEj5J2fzPz5kM3p+2+GjqGqiMJZFEl7A==",
+  "dgSpecHash": "F1LPQWqqHMzzMV3m5VzNZXaLhXzGAO4ZbIGVzE8RH8Iy18px+57oqmBFxMupfD6zxFxYowYAnRyBe5t9SaiFkA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\asus\\Merv Dropbox\\Merve Bayer\\PC\\Documents\\GitHub\\PaymentSystem\\PaymentSystem\\PaymentSystem.csproj",
+  "projectFilePath": "c:\\Users\\asus\\Merv Dropbox\\Merve Bayer\\PC\\Documents\\GitHub\\PaymentSystem\\PaymentSystem\\PaymentSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\asus\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\asus\\.nuget\\packages\\dapper\\2.1.28\\dapper.2.1.28.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\entityframework\\6.3.0\\entityframework.6.3.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\fluentvalidation\\9.5.2\\fluentvalidation.9.5.2.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\fluentvalidation.aspnetcore\\9.5.2\\fluentvalidation.aspnetcore.9.5.2.nupkg.sha512",
@@ -257,7 +258,7 @@
       "code": "NU1608",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Detected package version outside of dependency constraint: MediatR.Extensions.Microsoft.DependencyInjection 11.1.0 requires MediatR (>= 11.0.0 && < 12.0.0) but version MediatR 12.0.0 was resolved.",
+      "message": "Bağımlılık kısıtlaması dışında algılanan paket sürümü: MediatR.Extensions.Microsoft.DependencyInjection 11.1.0, MediatR (>= 11.0.0 && < 12.0.0) gerektiriyor ancak sürüm MediatR 12.0.0 çözümlenmiş.",
       "libraryId": "MediatR",
       "targetGraphs": [
         "net7.0"

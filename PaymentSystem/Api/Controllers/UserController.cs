@@ -62,4 +62,14 @@ public class UserController : ControllerBase
         var result = await mediator.Send(operation);
         return result;
     }
+
+   [HttpGet("GetRequestStatusCounts")]
+// [Authorize(Roles = "Manager")]
+public async Task<ApiResponse<IEnumerable<RequestStatusCountsResponse>>> GetRequestStatusCounts()
+{
+    var operation = new GetRequestStatusCountsQuery();
+    var result = await mediator.Send(operation);
+    return result;
+}
+
 }
