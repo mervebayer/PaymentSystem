@@ -1,6 +1,7 @@
 using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using PaymentSystem.Base.Enum;
 using PaymentSystem.Base.Response;
 using PaymentSystem.Business.Cqrs;
 using PaymentSystem.Data;
@@ -36,7 +37,7 @@ public class EmployeeExpenseCommandHandler : IRequestHandler<CreateEmployeeExpen
 
     public async Task<ApiResponse> Handle(UpdateEmployeeExpenseCommand request, CancellationToken cancellationToken)
     {
-        var expense = await dbContext.Set<Expense>().Where(x => x.Id == request.Id && x.UserId == request.Model.UserId&& x.IsActive == true)
+        var expense = await dbContext.Set<Expense>().Where(x => x.Id == request.Id && x.UserId == request.Model.UserId&& x.IsActive == true && x.Status != StatusEnum.Declined && x.Status != StatusEnum.Approved)
             .FirstOrDefaultAsync(cancellationToken);
         if (expense == null)
         {
@@ -54,7 +55,7 @@ public class EmployeeExpenseCommandHandler : IRequestHandler<CreateEmployeeExpen
 
     public async Task<ApiResponse> Handle(DeleteEmployeeExpenseCommand request, CancellationToken cancellationToken)
     {
-        var expense = await dbContext.Set<Expense>().Where(x => x.Id == request.Id && x.UserId == request.UserId && x.IsActive == true && x.Status != Base.Enum.StatusEnum.Declined && x.Status != Base.Enum.StatusEnum.Approved)
+        var expense = await dbContext.Set<Expense>().Where(x => x.Id == request.Id && x.UserId == request.UserId && x.IsActive == true && x.Status != StatusEnum.Declined && x.Status != StatusEnum.Approved)
             .FirstOrDefaultAsync(cancellationToken);
 
         if (expense == null)
